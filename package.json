@@ -9,7 +9,7 @@
   "scripts": {
     "test": "standard 'src/**/*.js' 'test/**/*.js' && BABEL_ENV=commonjs ava --esnext",
     "test:watch": "npm test -- --watch",
-    "copy-types": "cp -r type-definitions/ lib/ && cp -r type-definitions/ es/",
+    "copy-types": "copyfiles type-definitions/ lib/ && copyfiles type-definitions/ es/",
     "clean": "rimraf lib dist es",
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min && npm run copy-types",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
@@ -55,6 +55,7 @@
     "babel-polyfill": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-stage-2": "^6.22.0",
+    "copyfiles": "^1.0.0",
     "cross-env": "^3.1.4",
     "immutable": "^3.8.1",
     "redux": "^3.6.0",
