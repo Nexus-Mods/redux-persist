@@ -50,7 +50,7 @@ export default function getStoredState (config, onComplete) {
   function rehydrate (key, serialized) {
     let state = null
 
-    let data = deserialize(serialized)
+    let data = deserializer(serialized)
     state = transforms.reduceRight((subState, transformer) => {
       return transformer.out(subState, key)
     }, data)
